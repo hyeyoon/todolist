@@ -1,0 +1,201 @@
+@import "../LIBRARY/lib/functions"
+@import "../LIBRARY/lib/mixins"
+@import "../LIBRARY/susy/susy"
+@import "susy_setting"
+
+// button color
+$default : linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)
+$pink  : linear-gradient(to top, #fad0c4 0%, #fad0c4 1%, #ffd1ff 100%)
+$green : linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)
+$pink-green : linear-gradient(to top, #a8edea 0%, #fed6e3 100%)
+$grey   : linear-gradient(to top, #ebebeb 0%, #dcdddf 52%, #c4c5c7 100%)
+
+=content-center
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+html
+  font-size: 10px
+  font-family: 'Spoqa Han Sans', 'Sans-serif'
+
+*
+  box-sizing: border-box
+
+body
+  margin: 0
+  border: 0
+  background: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)
+  font-size: 1.4rem
+  min-height: 100vh
+  // display: flex
+  // justify-content: center
+  // align-items: center
+label
+  display: none
+ul
+  margin: 0
+  padding: 0
+li
+  list-style: none
+  margin: 0
+  padding: 0
+
+//nav bar
+.menu-colorlist
+  cursor: pointer
+  border-radius: 0 6px 6px 0
+  box-shadow: 0px 0.5px 2px hsla(0,0%,0,.25)
+  background: #fff
+  position: absolute
+  display: inline-flex
+  padding: 0.3em 1.5em 0.3em 0.3em
+  transform: translateX(-90%)
+  transition: all 0.3s ease-out
+  &:hover
+    transform: translateX(0)
+  &::after
+    position: absolute
+    top: 50%
+    right: 4px
+    content: '▶'
+    color: #e7e7e7
+    transform: translateY(-50%)
+  & ul
+    display: flex
+    list-style: none
+    margin-top: 0
+    margin-bottom: 0
+    padding-left: 0
+  // & ul::after
+  //   content: ''
+  //   display: block
+  //   clear: both
+  & li
+    margin-left: 7px
+    margin-right: 7px
+  & a
+    display: block
+    width: 30px
+    height: 30px
+    border-radius: 50%
+  &__item--pink
+    background: $pink
+  &__item--green
+    background: $green
+  &__item--pink-green
+    background: $pink-green
+  &__item--grey
+    background: $grey
+  &__item--default
+    background: $default
+
+@media screen and (max-width: 400px)
+  .wrapper
+    +span(10 of 12)
+    +push(1)
+
+  .menu-colorlist
+    top: 20px
+
+@media screen and (min-width: 401px) and (max-width: 959px)
+  .wrapper
+    +span(10 of 12)
+    +push(1)
+  .menu-colorlist
+    bottom: 50px
+
+@media screen and (min-width: 960px)
+  .wrapper
+    +span(6 of 12)
+    +push(3)
+  .menu-colorlist
+    bottom: 50px
+
+.wrapper
+  display: flex
+  flex-direction: column
+
+.todo
+  position: relative
+  &__heading
+    font-size: 4.8rem
+    display: block
+    color: #fff
+    text-align: center
+    margin-bottom: 2rem
+    margin-top: 7rem
+    font-weight: 300
+  &__input
+    border: none
+    border-radius: 5px
+    width: 100%
+    height: 40px
+    padding: 10px
+    font-size: 1.6rem
+    box-shadow: 0px 3px 10px 0px #474747
+  &__button
+    border: 0
+    cursor: pointer
+    background: #c3c3c3
+    border-radius: 50%
+    width: 30px
+    height: 30px
+    top: 5px
+    right: 10px
+    position: absolute
+  &__button:hover,
+  &__button:focus
+    opacity: 0.8
+  &__button__remove
+    // border: 0
+    cursor: pointer
+    color: #ffffff
+    background: transparent
+    font-size: 1.8rem
+    margin-bottom: 1rem
+    margin-top: 1rem
+    border: 0
+    text-align: left
+    margin-left: 0
+    padding-left: 0
+    width: 160px
+  & span
+    color: #fff
+    font-size: 2rem
+  &-list__item
+    margin: 1.5rem auto
+    background: #fff
+    border-radius: 5px
+    height: 40px
+    /* vertical-align: middle */
+    font-size: 1.6rem
+    padding: 1.2rem
+    color: #5c5c5c
+    cursor: pointer
+  &-list__text
+    position: relative
+    // transition: all 2s ease-in-out
+  &-list__text::before
+    content: ""
+    height: 2px
+    background: #5c5c5c
+    position: absolute
+    top: 0.8rem
+    left: 0
+    animation-name: add-line
+    animation-delay: 0s
+    animation-duration: 0.5s
+    animation-fill-mode: forwards
+.remove-btn
+  opacity: 0.5
+
+[draggable]
+  user-select: none
+
+/* The animation code */
+@keyframes add-line
+    from
+      width: 0
+    to
+      width: 100%
