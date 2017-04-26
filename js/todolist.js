@@ -40,7 +40,7 @@ document.onkeypress = keyPress;
 function keyPress(e){
   var x = e || window.event;
   var key = (x.keyCode || x.which);
-  if(key == 13 || key == 3){
+  if(key == 13 || key == 32){
    //  input action;
    html_str = input.value;
    if (html_str === "") {

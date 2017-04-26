@@ -203,7 +203,7 @@ li {
   background: #fff;
   border-radius: 5px;
   height: 40px;
-  /* vertical-align: middle */
+  line-height: 1;
   font-size: 1.6rem;
   padding: 1.2rem;
   color: #5c5c5c;
